@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sai Charan K - Software Developer Portfolio showcasing cutting-edge projects and expertise">
+    <meta property="og:title" content="Sai Charan K -  Developer Portfolio" />
+    <meta property="og:description" content="Experience innovation through code. Explore advanced projects, expertise, and professional journey." />
+    <meta property="og:type" content="website" />
+    <title>Sai Charan K -  Developer Portfolio</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="./elite-styles.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div class="particle-container">
+        <canvas id="particle-canvas"></canvas>
+    </div>
+
+    <!-- Cursor Followers -->
+    <div class="cursor-follower"></div>
+    <div class="cursor-follower-delayed"></div>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-logo">
+                <span class="loading-text">SC</span>
+                <div class="loading-ring"></div>
+            </div>
+            <div class="loading-progress">
+                <div class="loading-bar"></div>
+            </div>
+            <p class="loading-message">Initializing  Experience...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Sai Charan</span>
+                <div class="logo-accent"></div>
+            </div>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#hero" class="nav-link active" data-section="hero">
+                    <i class="fas fa-home"></i>
+                    <span>Home</span>
+                </a>
+                <a href="#about" class="nav-link" data-section="about">
+                    <i class="fas fa-user"></i>
+                    <span>About</span>
+                </a>
+                <a href="#experience" class="nav-link" data-section="experience">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Experience</span>
+                </a>
+                <a href="#skills" class="nav-link" data-section="skills">
+                    <i class="fas fa-code"></i>
+                    <span>Skills</span>
+                </a>
+                <a href="#projects" class="nav-link" data-section="projects">
+                    <i class="fas fa-rocket"></i>
+                    <span>Projects</span>
+                </a>
+                <a href="#contact" class="nav-link" data-section="contact">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                </a>
+            </div>
+
+            <div class="nav-controls">
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </button>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-greeting">
+                    <span class="greeting-text">Hello, I'm</span>
+                </div>
+                
+                <h1 class="hero-title">
+                    <span class="title-line">Sai Charan K</span>
+                    <span class="title-line title-gradient">Program Analyst Trainee @ Cognizant</span>
+                </h1>
+                
+                <div class="hero-subtitle">
+                    <span class="typing-text"></span>
+                    <span class="cursor-blink">|</span>
+                </div>
+                
+                <p class="hero-description">
+                    Transforming ideas into digital reality through innovative software solutions. 
+                    Currently driving excellence at <span class="highlight">Cognizant</span> as a 
+                    Program Analyst Trainee, specializing in Java Full Stack development and 
+                    cutting-edge technologies.
+                </p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="95">0</span>
+                        <span class="stat-unit">%</span>
+                        <span class="stat-label">AI Accuracy</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="8">0</span>
+                        <span class="stat-unit">.24</span>
+                        <span class="stat-label">CGPA</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="5">0</span>
+                        <span class="stat-unit">+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                </div>
+                
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">
+                        <span>Explore Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Let's Connect</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
+                    <a href="/api/download" class="btn btn-outline" download>
+                        <span>Resume</span>
+                        <i class="fas fa-download"></i>
+                    </a>
+                </div>
+                
+                <div class="hero-social">
+                    <a href="mailto:saicharanreddy141458@gmail.com" class="social-link" data-tooltip="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/sai-charan-k-21940924a" class="social-link" data-tooltip="LinkedIn" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/ksaicharan248" class="social-link" data-tooltip="GitHub" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="tel:+919014145839" class="social-link" data-tooltip="Phone">
+                        <i class="fas fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-avatar">
+                    <div class="avatar-ring"></div>
+                    <div class="avatar-content">
+                        <div class="code-snippet">
+                            <div class="code-line">
+                                <span class="code-keyword">const</span>
+                                <span class="code-variable">Dev</span>
+                                <span class="code-operator">=</span>
+                                <span class="code-string">"innovation"</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="floating-tech">
+                    <div class="tech-item tech-python">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                    <div class="tech-item tech-java">
+                        <i class="fab fa-java"></i>
+                        <span>Java</span>
+                    </div>
+                    <div class="tech-item tech-react">
+                        <i class="fab fa-react"></i>
+                        <span>React</span>
+                    </div>
+                    <div class="tech-item tech-aws">
+                        <i class="fab fa-aws"></i>
+                        <span>AWS</span>
+                    </div>
+                    <div class="tech-item tech-js">
+                        <i class="fab fa-js"></i>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="tech-item tech-database">
+                        <i class="fas fa-database"></i>
+                        <span>Database</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Get to know me</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="text-block">
+                        <h3>The Journey</h3>
+                        <p>
+                            I'm a passionate software developer with a unique blend of Electronics & Communication 
+                            Engineering background and cutting-edge software development expertise. Currently thriving 
+                            at <strong>Cognizant</strong> as a Program Analyst Trainee, I'm immersed in the world of 
+                            Java Full Stack development and enterprise-grade solutions.
+                        </p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3>The Passion</h3>
+                        <p>
+                            My fascination lies in the intersection of AI/ML, cloud computing, and automation. 
+                            I've architected intelligent systems that push the boundaries of what's possible, 
+                            from achieving <strong>95% accuracy</strong> in AI-based license plate recognition 
+                            to building sophisticated automation tools that streamline complex workflows.
+                        </p>
+                    </div>
+                    
+                    <div class="text-block">
+                        <h3>The Vision</h3>
+                        <p>
+                            I believe in the power of continuous learning and innovation. Every line of code I write, 
+                            every system I design, is driven by the desire to solve real-world problems and create 
+                            meaningful impact through technology.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="about-highlights">
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>AI/ML Expertise</h4>
+                        <p>Advanced computer vision and machine learning implementations</p>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>Cloud Architecture</h4>
+                        <p>Scalable solutions on AWS with modern DevOps practices</p>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>Automation</h4>
+                        <p>Intelligent bots and automation systems for enhanced productivity</p>
+                    </div>
+                    
+                    <div class="highlight-card">
+                        <div class="highlight-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Full Stack</h4>
+                        <p>End-to-end development with modern frameworks and tools</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Professional Journey</span>
+                <h2 class="section-title">Work Experience</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="experience-card">
+                            <div class="company-logo">
+                                <img src="https://companieslogo.com/img/orig/CTSH-82a8444b.png?t=1720244491" alt="Cognizant Logo">
+                            </div>
+                            
+                            <div class="experience-details">
+                                <div class="experience-header">
+                                    <h3 class="job-title">Program Analyst Trainee</h3>
+                                    <span class="company-name">Cognizant Technology Solutions</span>
+                                    <div class="experience-meta">
+                                        <span class="location">
+                                            <i class="fas fa-map-marker-alt"></i>
+                                            Chennai, India
+                                        </span>
+                                        <span class="duration">
+                                            <i class="fas fa-calendar"></i>
+                                            June 2025 - Present
+                                        </span>
+                                    </div>
+                                </div>
+                                
+                                <div class="experience-description">
+                                    <p class="tech-focus">
+                                        <strong>Focus:</strong> Java Full Stack Development (React)
+                                    </p>
+                                </div>
+                                
+                                <div class="tech-stack">
+                                    <span class="tech-tag">Java</span>
+                                    <span class="tech-tag">Spring Boot</span>
+                                    <span class="tech-tag">Microservices</span>
+                                    <span class="tech-tag">REST APIs</span>
+                                    <span class="tech-tag">SQL</span>
+                                    <span class="tech-tag">Agile</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Academic Journey</span>
+                <h2 class="section-title">Education</h2>
+                <div class="section-line"></div>
+                <p class="section-description">
+                    Building a strong foundation through quality education and continuous learning
+                </p>
+            </div>
+            
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="education-card">
+                            <div class="education-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            
+                            <div class="education-details">
+                                <div class="education-header">
+                                    <h3 class="degree-title">Bachelor of Technology</h3>
+                                    <span class="specialization">Electronics & Communication Engineering</span>
+                                    <div class="education-meta">
+                                        <span class="institution">
+                                            <i class="fas fa-university"></i>
+                                            Sreenivasa Institute of Technology and Management Studies
+                                        </span>
+                                        <span class="duration">
+                                            <i class="fas fa-calendar"></i>
+                                            2020 - 2024
+                                        </span>
+                                        <span class="grade">
+                                            <i class="fas fa-star"></i>
+                                            CGPA: 8.24/10
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Higher Secondary Education -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                        <div class="marker-line"></div>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="education-card">
+                            <div class="education-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            
+                            <div class="education-details">
+                                <div class="education-header">
+                                    <h3 class="degree-title">Intermediate (Class XII)</h3>
+                                    <span class="specialization">State Board</span>
+                                    <div class="education-meta">
+                                        <span class="institution">
+                                            <i class="fas fa-school"></i>
+                                            Sri Chaitanya Junior College
+                                        </span>
+                                        <span class="duration">
+                                            <i class="fas fa-calendar"></i>
+                                            2018 - 2020
+                                        </span>
+                                        <span class="grade">
+                                            <i class="fas fa-star"></i>
+                                            CGPA: 9.01/10
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Education -->
+                <div class="timeline-item">
+                    <div class="timeline-marker">
+                        <div class="marker-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-content">
+                        <div class="education-card">
+                            <div class="education-icon">
+                                <i class="fas fa-school"></i>
+                            </div>
+                            
+                            <div class="education-details">
+                                <div class="education-header">
+                                    <h3 class="degree-title">Secondary Education (Class X)</h3>
+                                    <span class="specialization">State Board</span>
+                                    <div class="education-meta">
+                                        <span class="institution">
+                                            <i class="fas fa-school"></i>
+                                            Sri Chaitanya Techno School
+                                        </span>
+                                        <span class="duration">
+                                            <i class="fas fa-calendar"></i>
+                                            2017 - 2018
+                                        </span>
+                                        <span class="grade">
+                                            <i class="fas fa-star"></i>
+                                            CGPA: 9.7/10
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Technical Arsenal</span>
+                <h2 class="section-title">Skills & Technologies</h2>
+                <div class="section-line"></div>
+                <p class="section-description">
+                    A comprehensive toolkit mastered through hands-on experience and continuous learning
+                </p>
+            </div>
+            
+            <div class="skills-content">
+                <!-- Skills Overview Cards -->
+                <div class="skills-overview">
+                    <div class="overview-card" data-category="languages">
+                        <div class="overview-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="overview-info">
+                            <h3>Programming</h3>
+                            <p>5+ Languages</p>
+                        </div>
+                        <div class="overview-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card" data-category="frameworks">
+                        <div class="overview-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div class="overview-info">
+                            <h3>Frameworks</h3>
+                            <p>Modern Stack</p>
+                        </div>
+                        <div class="overview-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card" data-category="cloud">
+                        <div class="overview-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <div class="overview-info">
+                            <h3>Cloud & DevOps</h3>
+                            <p>Scalable Solutions</p>
+                        </div>
+                        <div class="overview-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="overview-card" data-category="ai">
+                        <div class="overview-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="overview-info">
+                            <h3>AI & ML</h3>
+                            <p>Intelligence Systems</p>
+                        </div>
+                        <div class="overview-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Matrix -->
+                <div class="skills-matrix">
+                    <!-- Programming Languages -->
+                    <div class="skill-domain active" data-domain="languages">
+                        <div class="domain-header">
+                            <h3>Programming Languages</h3>
+                            <span class="domain-count">5 Technologies</span>
+                        </div>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-python" style="color: #3776ab;"></i>
+                                </div>
+                                <h4>Python</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-java" style="color: #f89820;"></i>
+                                </div>
+                                <h4>Java</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-js-square" style="color: #f7df1e;"></i>
+                                </div>
+                                <h4>JavaScript</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-html5" style="color: #e34f26;"></i>
+                                </div>
+                                <h4>HTML5</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-css3-alt" style="color: #1572b6;"></i>
+                                </div>
+                                <h4>CSS3</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Frameworks & Libraries -->
+                    <div class="skill-domain" data-domain="frameworks">
+                        <div class="domain-header">
+                            <h3>Frameworks & Libraries</h3>
+                            <span class="domain-count">6 Technologies</span>
+                        </div>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-react" style="color: #61dafb;"></i>
+                                </div>
+                                <h4>React</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-node-js" style="color: #339933;"></i>
+                                </div>
+                                <h4>Node.js</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-leaf" style="color: #6cc04a;"></i>
+                                </div>
+                                <h4>Spring Boot</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="devicon-selenium-plain colored"></i>
+                                </div>
+                                <h4>Selenium</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-fire" style="color: #ee4c2c;"></i>
+                                </div>
+                                <h4>PyTorch</h4>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <!-- Cloud & DevOps -->
+                    <div class="skill-domain" data-domain="cloud">
+                        <div class="domain-header">
+                            <h3>Cloud & DevOps</h3>
+                            <span class="domain-count">5 Technologies</span>
+                        </div>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-aws" style="color: #ff9900;"></i>
+                                </div>
+                                <h4>AWS</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-docker" style="color: #2496ed;"></i>
+                                </div>
+                                <h4>Docker</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-git-alt" style="color: #f05032;"></i>
+                                </div>
+                                <h4>Git</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fab fa-linux" style="color: #fcc624;"></i>
+                                </div>
+                                <h4>Linux</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-database" style="color: #336791;"></i>
+                                </div>
+                                <h4>Databases</h4>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI & Machine Learning -->
+                    <div class="skill-domain" data-domain="ai">
+                        <div class="domain-header">
+                            <h3>AI & Machine Learning</h3>
+                            <span class="domain-count">4 Specializations</span>
+                        </div>
+                        
+                        <div class="skills-grid">
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-brain" style="color: #ff6b6b;"></i>
+                                </div>
+                                <h4>Machine Learning</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-search" style="color: #4ecdc4;"></i>
+                                </div>
+                                <h4>YOLOv8</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-chart-line" style="color: #45b7d1;"></i>
+                                </div>
+                                <h4>Data Science</h4>
+                            </div>
+                            
+                            <div class="skill-card">
+                                <div class="skill-icon">
+                                    <i class="fas fa-robot" style="color: #96ceb4;"></i>
+                                </div>
+                                <h4>Automation</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Skills Navigation -->
+                <div class="skills-navigation">
+                    <button class="nav-button active" data-target="languages">
+                        <i class="fas fa-code"></i>
+                        <span>Languages</span>
+                    </button>
+                    <button class="nav-button" data-target="frameworks">
+                        <i class="fas fa-layer-group"></i>
+                        <span>Frameworks</span>
+                    </button>
+                    <button class="nav-button" data-target="cloud">
+                        <i class="fas fa-cloud"></i>
+                        <span>Cloud & DevOps</span>
+                    </button>
+                    <button class="nav-button" data-target="ai">
+                        <i class="fas fa-brain"></i>
+                        <span>AI & ML</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Featured Work</span>
+                <h2 class="section-title">Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- AI License Plate Recognition -->
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">YOLOv8</span>
+                            <span class="tech-badge">OpenCV</span>
+                            <span class="tech-badge">PyTorch</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <h3 class="project-title">AI License Plate Recognition</h3>
+                            <span class="project-status">Production</span>
+                        </div>
+                        
+                        <p class="project-description">
+                            Advanced real-time vehicle license plate recognition system achieving 
+                            <strong>95% accuracy</strong> with <strong>0.2s</strong> processing time. 
+                            Leverages cutting-edge computer vision and deep learning technologies.
+                        </p>
+                        
+                        <div class="project-features">
+                            <div class="feature">
+                                <i class="fas fa-bolt"></i>
+                                <span>Real-time Processing</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-target"></i>
+                                <span>95% Accuracy</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-brain"></i>
+                                <span>Deep Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Resume Assistant -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Gemini AI</span>
+                            <span class="tech-badge">AWS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fab fa-telegram"></i>
+                            </div>
+                            <h3 class="project-title">AI Resume Tailoring Bot</h3>
+                            <span class="project-status">Active</span>
+                        </div>
+                        
+                        <p class="project-description">
+                            Intelligent Telegram bot powered by Google Gemini AI that automatically 
+                            tailors resumes based on job descriptions for optimal ATS optimization.
+                        </p>
+                        
+                        <div class="project-features">
+                            <div class="feature">
+                                <i class="fas fa-robot"></i>
+                                <span>AI Powered</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-search"></i>
+                                <span>ATS Optimized</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-cloud"></i>
+                                <span>Cloud Deployed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Attendance Bot -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">Selenium</span>
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">AWS EC2</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-calendar-check"></i>
+                            </div>
+                            <h3 class="project-title">Smart Attendance Bot</h3>
+                            <span class="project-status">Deployed</span>
+                        </div>
+                        
+                        <p class="project-description">
+                            Automated attendance tracking system with real-time notifications, 
+                            secure session handling, and intelligent error recovery mechanisms.
+                        </p>
+                        
+                        <div class="project-features">
+                            <div class="feature">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Secure</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-bell"></i>
+                                <span>Real-time Alerts</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-cogs"></i>
+                                <span>Automated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sudoku Solver -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Flask</span>
+                            <span class="tech-badge">Algorithms</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <h3 class="project-title">AI Sudoku Solver</h3>
+                            <span class="project-status">Complete</span>
+                        </div>
+                        
+                        <p class="project-description">
+                            Interactive web-based Sudoku solver using advanced backtracking algorithms 
+                            with dynamic puzzle generation and real-time solution visualization.
+                        </p>
+                        
+                        <div class="project-features">
+                            <div class="feature">
+                                <i class="fas fa-calculator"></i>
+                                <span>Algorithm Based</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-eye"></i>
+                                <span>Visual Solver</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-random"></i>
+                                <span>Dynamic Generation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Discord Bot -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="project-tech-stack">
+                            <span class="tech-badge">Discord API</span>
+                            <span class="tech-badge">MongoDB</span>
+                            <span class="tech-badge">REST API</span>
+                        </div>
+                    </div>
+                    
+                    <div class="project-content">
+                        <div class="project-header">
+                            <div class="project-icon">
+                                <i class="fab fa-discord"></i>
+                            </div>
+                            <h3 class="project-title">Clash of Clans Bot</h3>
+                            <span class="project-status">Live</span>
+                        </div>
+                        
+                        <p class="project-description">
+                            Real-time clan statistics bot with comprehensive data analytics, 
+                            member tracking, and automated reporting features for gaming communities.
+                        </p>
+                        
+                        <div class="project-features">
+                            <div class="feature">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Real-time Stats</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-database"></i>
+                                <span>Data Analytics</span>
+                            </div>
+                            <div class="feature">
+                                <i class="fas fa-users"></i>
+                                <span>Community Focus</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge">Let's Connect</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="section-line"></div>
+                <p class="section-description">
+                    Ready to create something amazing together? Let's discuss your next project.
+                </p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>saicharanreddy141458@gmail.com</p>
+                            <a href="mailto:saicharanreddy141458@gmail.com" class="contact-link">
+                                Send Email <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+91 9014145839</p>
+                            <a href="tel:+919014145839" class="contact-link">
+                                Call Now <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <p>Professional Network</p>
+                            <a href="https://linkedin.com/in/sai-charan-k-21940924a" class="contact-link" target="_blank">
+                                Connect <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                            <span class="form-highlight"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="form-highlight"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                            <span class="form-highlight"></span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <span class="form-highlight"></span>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Send Message</span>
+                            <span class="btn-loading">
+                                <i class="fas fa-spinner fa-spin"></i>
+                            </span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                        
+                        <div class="form-status">
+                            <div class="form-success" id="formSuccess">
+                                <i class="fas fa-check-circle"></i>
+                                <p>Message sent successfully! I'll get back to you soon.</p>
+                            </div>
+                            <div class="form-error" id="formError">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <p>Something went wrong. Please try again.</p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>Sai Charan K</h3>
+                    <p>Transforming ideas into digital excellence</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#hero">Home</a>
+                    <a href="#about">About</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="mailto:saicharanreddy141458@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/sai-charan-k-21940924a" class="social-link" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/ksaicharan248" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Sai Charan K. Crafted with passion and precision.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="./elite-script.js"></script>
+</body>
+</html>
