@@ -1,53 +1,113 @@
-# 🚀 Elite Dark Portfolio
+# Elite Dark Portfolio - React Version
 
-A stunning, modern, and highly animated dark-themed portfolio website showcasing cutting-edge web development skills ### 5. **Skills Section**
-- Categorized skill display
-- Interactive skill categories
-- Animated progress bars
-- Technology icons
+A modern, responsive portfolio website built with React and Vite, featuring stunning animations, dark/light theme toggle, and a professional design.
 
-### 6. **Projects Section**
-- Featured project showcase
-- Hover animations
-- Technology badges
-- Project status indicators
-- External links
+## 🚀 Features
 
-### 7. **Contact Section**al achievements.
-
-## ✨ Features
-
-### 🎨 Visual Excellence
-- **Dark Theme**: Sleek, professional dark theme with light theme toggle
-- **Particle Animation**: Dynamic particle background with mouse interaction
-- **Custom Cursor**: Smooth cursor followers with hover effects
-- **Glassmorphism**: Modern glass-like UI elements
-- **Gradient Accents**: Beautiful gradient overlays and effects
-- **Loading Animation**: Professional loading screen with progress bar
-
-### 🚀 Advanced Interactions
-- **Smooth Scrolling**: Buttery smooth navigation between sections
-- **Typing Animation**: Dynamic typing effect for role descriptions
-- **Count Up Stats**: Animated statistics with number counting
-- **Skill Bars**: Progressive skill level animations
-- **Hover Effects**: Engaging micro-interactions on all elements
-- **Scroll Animations**: Elements animate into view on scroll
-
-### 📱 Responsive & Accessible
-- **Mobile First**: Fully responsive across all devices
-- **Touch Friendly**: Optimized for mobile interactions
-- **SEO Optimized**: Meta tags and structured data
-- **Fast Loading**: Optimized assets and code splitting
-- **Cross Browser**: Works perfectly on all modern browsers
-
-### 🔧 Technical Features
-- **Contact Form**: Working contact form with email notifications
-- **Resume Download**: Direct resume download functionality
-- **API Integration**: RESTful API endpoints
-- **Security**: Rate limiting and security headers
-- **Error Handling**: Comprehensive error management
+- **React 18** with modern hooks and components
+- **Vite** for fast development and optimized builds
+- **Framer Motion** for smooth animations
+- **Responsive Design** that works on all devices
+- **Dark/Light Theme** toggle
+- **Particle Background** animations
+- **Custom Cursor** effects
+- **Contact Form** with email integration
+- **Resume Download** functionality
+- **Modern UI/UX** with glassmorphism effects
 
 ## 🛠️ Tech Stack
+
+### Frontend
+- React 18
+- Vite
+- Framer Motion
+- Lucide React (Icons)
+- React Router DOM
+- React Intersection Observer
+
+### Backend
+- Node.js
+- Express.js
+- Nodemailer
+- Helmet (Security)
+- CORS
+- Rate Limiting
+
+### Development
+- Concurrently (Run frontend and backend together)
+- Nodemon (Auto-restart server)
+
+## 📦 Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/ksaicharan248/Portfolio.git
+   cd Portfolio
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Environment Setup**
+   ```bash
+   cp .env.example .env
+   ```
+   
+   Update the `.env` file with your actual values:
+   ```env
+   EMAIL_USER=your-email@gmail.com
+   EMAIL_PASS=your-gmail-app-password
+   PORT=3000
+   NODE_ENV=development
+   ```
+
+## 🏃‍♂️ Running the Project
+
+### Development Mode
+Run both frontend (Vite) and backend (Express) concurrently:
+```bash
+npm start
+```
+
+This will start:
+- **Frontend**: http://localhost:5173 (Vite dev server)
+- **Backend**: http://localhost:3000 (Express API server)
+
+### Individual Commands
+
+**Frontend only** (React with Vite):
+```bash
+npm run dev
+```
+
+**Backend only** (Express server):
+```bash
+npm run server:dev
+```
+
+**Production server only**:
+```bash
+npm run server
+```
+
+## 🏗️ Building for Production
+
+1. **Build the React app**:
+   ```bash
+   npm run build
+   ```
+
+2. **Preview the production build**:
+   ```bash
+   npm run preview
+   ```
+
+3. **Deploy**: Set `NODE_ENV=production` and run:
+   ```bash
+   NODE_ENV=production npm run server
+   ```
 
 ### Frontend
 - **HTML5**: Semantic markup and accessibility
