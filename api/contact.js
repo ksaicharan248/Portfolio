@@ -24,13 +24,21 @@ const contactLimiter = rateLimit({
     }
 });
 
+const transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+            user: process.env.GMAIL_USER,
+            pass: process.env.GMAIL_PASS
+        }
+    });
+
 // Email transporter configuration with better error handling
 const createTransporter = () => {
     return nodemailer.createTransporter({
         service: 'gmail',
         auth: {
-            user: process.env.EMAIL_USER || 'your-email@gmail.com',
-            pass: process.env.EMAIL_PASS || 'your-app-password'
+            user: process.env.GMAIL_USER || 'your-email@gmail.com',
+            pass: process.env.GMAIL_PASS || 'your-app-password'
         },
         tls: {
             rejectUnauthorized: false
@@ -86,7 +94,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
         // Email to portfolio owner
         const mailOptions = {
-            from: process.env.EMAIL_USER,
+            from: process.env.GMAIL_USER,
             to: 'saicharanreddy141458@gmail.com',
             subject: `Portfolio Contact: ${sanitizedData.subject}`,
             html: `
@@ -140,7 +148,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
         // Auto-reply to sender
         const autoReplyOptions = {
-            from: process.env.EMAIL_USER,
+            from: process.env.GMAIL_USER,
             to: sanitizedData.email,
             subject: 'Thank you for contacting me!',
             html: `
