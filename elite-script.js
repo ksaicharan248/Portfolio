@@ -298,10 +298,9 @@ class ElitePortfolio {
 
         const texts = [
             'Full Stack Developer',
-            'AI/ML Engineer',
-            'Cloud Architect',
-            'Automation Expert',
-            'Problem Solver'
+            'Backend Developer (Java/Spring Boot)',
+            'AI/GenAI Application Developer',
+            'Cloud & DevOps Engineer (Entry-Level)'
         ];
 
         let textIndex = 0;

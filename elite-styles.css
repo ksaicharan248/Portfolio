@@ -779,14 +779,14 @@ body::-webkit-scrollbar-thumb {
 
 /* Arranged in a circular pattern around the center */
 .tech-python {
-    top: -80px;
+    top: -60px;
     left: -10px;
     animation-delay: 0s;
     color: #3776ab;
 }
 
 .tech-java {
-    top: -80px;
+    top: -40px;
     right: -10px;
     animation-delay: 1s;
     color: #f89820;
@@ -818,6 +818,19 @@ body::-webkit-scrollbar-thumb {
     left: -80px;
     animation-delay: 5s;
     color: var(--accent-color);
+}
+.tech-spring {
+    top: -140px;
+    left: 200px;
+    animation-delay: 6s;
+    color: #6db33f;
+}
+
+.tech-genai {
+    bottom: -100px;
+    left: 200px;
+    animation-delay: 7s;
+    color: #ff6b6b;
 }
 
 .scroll-indicator {
