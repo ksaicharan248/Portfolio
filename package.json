@@ -1,0 +1,26 @@
+{
+  "name": "elite-portfolio",
+  "version": "1.0.0",
+  "description": "Elite Dark Portfolio with Contact Form API",
+  "main": "index.html",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "vercel dev",
+    "build": "echo 'No build step required'",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "portfolio",
+    "contact-form",
+    "vercel",
+    "serverless"
+  ],
+  "author": "Sai Charan K",
+  "license": "MIT",
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,44 +1,39 @@
-// Elite Portfolio - Contact API
-require('dotenv').config();
-
-const express = require('express');
+// Elite Portfolio - Contact API (Vercel Serverless Function)
 const nodemailer = require('nodemailer');
-const rateLimit = require('express-rate-limit');
-const helmet = require('helmet');
-const cors = require('cors');
 
-const app = express();
+// Rate limiting storage (in-memory for demo, use Redis for production)
+const rateLimitStore = new Map();
 
-// Security middleware
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-// Rate limiting
-const contactLimiter = rateLimit({
-    windowMs: 15 * 60 * 1000, // 15 minutes
-    max: 5, // limit each IP to 5 requests per windowMs
-    message: {
-        error: 'Too many contact requests from this IP, please try again later.'
+// Simple rate limiter
+const isRateLimited = (ip) => {
+    const now = Date.now();
+    const windowMs = 15 * 60 * 1000; // 15 minutes
+    const maxRequests = 5;
+    
+    const key = ip;
+    const requests = rateLimitStore.get(key) || [];
+    
+    // Remove old requests outside the window
+    const validRequests = requests.filter(time => now - time < windowMs);
+    
+    if (validRequests.length >= maxRequests) {
+        return true;
     }
-});
+    
+    // Add current request
+    validRequests.push(now);
+    rateLimitStore.set(key, validRequests);
+    
+    return false;
+};
 
-const transporter = nodemailer.createTransport({
-        service: "gmail",
-        auth: {
-            user: process.env.GMAIL_USER,
-            pass: process.env.GMAIL_PASS
-        }
-    });
-
-// Email transporter configuration with better error handling
+// Email transporter configuration
 const createTransporter = () => {
-    return nodemailer.createTransporter({
+    return nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: process.env.GMAIL_USER || 'your-email@gmail.com',
-            pass: process.env.GMAIL_PASS || 'your-app-password'
+            user: process.env.EMAIL_USER || process.env.GMAIL_USER,
+            pass: process.env.EMAIL_PASS || process.env.GMAIL_PASS
         },
         tls: {
             rejectUnauthorized: false
@@ -46,27 +41,35 @@ const createTransporter = () => {
     });
 };
 
-// Test email configuration on startup
-const testEmailConfig = async () => {
-    try {
-        const transporter = createTransporter();
-        await transporter.verify();
-        console.log('✅ Email configuration verified successfully');
-    } catch (error) {
-        console.warn('⚠️  Email configuration issue:', error.message);
-        console.warn('Please check your EMAIL_USER and EMAIL_PASS in .env file');
+// Main handler function for Vercel
+module.exports = async (req, res) => {
+    // Enable CORS
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT');
+    res.setHeader('Access-Control-Allow-Headers', 'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version');
+    
+    if (req.method === 'OPTIONS') {
+        res.status(200).end();
+        return;
     }
-};
+    
+    if (req.method !== 'POST') {
+        return res.status(405).json({
+            error: 'Method not allowed',
+            message: 'Only POST requests are accepted'
+        });
+    }
 
-// Initialize email test
-testEmailConfig();
-
-// Contact form endpoint
-app.post('/api/contact', contactLimiter, async (req, res) => {
     try {
-        // Create fresh transporter for each request to handle potential auth issues
-        const currentTransporter = createTransporter();
-        
+        // Rate limiting
+        const clientIp = req.headers['x-forwarded-for'] || req.connection.remoteAddress || 'unknown';
+        if (isRateLimited(clientIp)) {
+            return res.status(429).json({
+                error: 'Too many contact requests from this IP, please try again later.'
+            });
+        }
+
         const { name, email, subject, message } = req.body;
 
         // Validation
@@ -92,9 +95,12 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
             message: message.trim().substring(0, 1000)
         };
 
+        // Create transporter
+        const transporter = createTransporter();
+
         // Email to portfolio owner
         const mailOptions = {
-            from: process.env.GMAIL_USER,
+            from: process.env.EMAIL_USER || process.env.GMAIL_USER,
             to: 'saicharanreddy141458@gmail.com',
             subject: `Portfolio Contact: ${sanitizedData.subject}`,
             html: `
@@ -148,7 +154,7 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
 
         // Auto-reply to sender
         const autoReplyOptions = {
-            from: process.env.GMAIL_USER,
+            from: process.env.EMAIL_USER || process.env.GMAIL_USER,
             to: sanitizedData.email,
             subject: 'Thank you for contacting me!',
             html: `
@@ -193,8 +199,8 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
         };
 
         // Send emails
-        await currentTransporter.sendMail(mailOptions);
-        await currentTransporter.sendMail(autoReplyOptions);
+        await transporter.sendMail(mailOptions);
+        await transporter.sendMail(autoReplyOptions);
 
         res.status(200).json({
             success: true,
@@ -209,6 +215,4 @@ app.post('/api/contact', contactLimiter, async (req, res) => {
             message: 'Please try again later or contact me directly via email.'
         });
     }
-});
-
-module.exports = app;
+};
